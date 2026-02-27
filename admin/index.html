@@ -10,11 +10,13 @@
   <script>
     CMS.init({
       config: {
-        // STAGING: test-repo stores posts in memory (browser only — no GitHub writes)
-        // PRODUCTION: swap to:
-        //   backend: { name: 'github', repo: 'PoconoWebPros/kobys-grill', branch: 'main', base_url: 'https://kobysgrill.com' }
-        // and deploy OAuth proxy (api/auth.js + api/callback.js) with GITHUB_CLIENT_ID/SECRET env vars
-        backend: { name: 'test-repo' },
+        backend: {
+          name: 'github',
+          repo: 'amassaro1978/kobys-grill-staging',
+          branch: 'main',
+          base_url: 'https://koby-blog-staging.vercel.app',
+          auth_endpoint: '/api/auth'
+        },
 
         media_folder: 'img/uploads',
         public_folder: '/img/uploads',
@@ -27,6 +29,7 @@
             create: true,
             slug: '{{slug}}',
             fields: [
+              { label: 'Layout',       name: 'layout',   widget: 'hidden', default: 'post' },
               { label: 'Title',        name: 'title',    widget: 'string' },
               { label: 'Publish Date', name: 'date',     widget: 'datetime', date_format: 'YYYY-MM-DD', time_format: false, default: '' },
               {

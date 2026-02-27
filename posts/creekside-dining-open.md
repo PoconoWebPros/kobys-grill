@@ -4,8 +4,6 @@ date: 2026-02-15
 category: Dining
 excerpt: Our outdoor terrace is officially open. There's nothing quite like dinner by the creek — reserve your table before weekends fill up.
 readTime: 2
-layout: post
-permalink: /blog/creekside-dining-open/
 ---
 
 It's our favorite time of year: the terrace is open, the creek is running, and the Poconos are waking back up.

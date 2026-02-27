@@ -4,8 +4,6 @@ date: 2026-02-20
 category: Catering
 excerpt: From intimate rehearsal dinners to corporate retreats, we bring the full Koby's experience to your venue anywhere in the Pocono Mountains.
 readTime: 2
-layout: post
-permalink: /blog/catering-poconos/
 ---
 
 We've been quietly catering events across the Poconos for years — weddings, rehearsal dinners, corporate retreats, milestone birthdays. The feedback is always the same: guests can't believe food this good came from off-site.

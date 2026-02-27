@@ -4,8 +4,6 @@ date: 2026-02-27
 category: Seasonal Menu
 excerpt: After a long winter, we're thrilled to bring back the flavors of the season. Our spring menu features fresh locally-sourced vegetables, lighter mezze spreads, and a few new dishes Koby has been working on all winter.
 readTime: 3
-layout: post
-permalink: /blog/spring-menu-2026/
 ---
 
 After a long winter, we're thrilled to bring back the flavors of the season. Our spring menu features fresh locally-sourced vegetables, lighter mezze spreads, and a few new dishes Koby has been perfecting since January.
