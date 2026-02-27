@@ -27,23 +27,24 @@ export default async function handler(req, res) {
       return res.status(400).send('GitHub OAuth error: ' + data.error_description);
     }
 
-    const payload = JSON.stringify({ token: data.access_token, provider: 'github' });
-    const message = 'authorization:github:success:' + payload;
+    const token = data.access_token;
 
     res.setHeader('Content-Type', 'text/html');
-    res.send([
-      '<!DOCTYPE html><html><body>',
-      '<script>',
-      'var msg = ' + JSON.stringify(message) + ';',
-      'function receiveMessage(e) {',
-      '  window.opener.postMessage(msg, e.origin);',
-      '}',
-      'window.addEventListener("message", receiveMessage, false);',
-      'window.opener.postMessage("authorizing:github", "*");',
-      '</script>',
-      '<p>Authorization complete. You may close this window.</p>',
-      '</body></html>',
-    ].join('\n'));
+    res.send(`<!DOCTYPE html><html><body>
+<script>
+(function() {
+  function sendMsg(msg) {
+    window.opener.postMessage(msg, "*");
+  }
+  sendMsg("authorizing:github");
+  setTimeout(function() {
+    sendMsg("authorization:github:success:" + JSON.stringify({token: "${token}", provider: "github"}));
+    setTimeout(function() { window.close(); }, 1000);
+  }, 200);
+})();
+</script>
+<p>Authorizing... you can close this window.</p>
+</body></html>`);
 
   } catch (err) {
     console.error(err);
