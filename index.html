@@ -281,6 +281,11 @@
         .nav-social { display: flex; gap: 1rem; align-items: center; margin-left: 0.5rem; padding-left: 1rem; border-left: 1px solid rgba(196,151,59,0.25); }
         .nav-social a { color: var(--gold); font-size: 1.1rem; transition: all 0.3s; text-decoration: none; }
         .nav-social a:hover { color: var(--gold-light); transform: scale(1.15); }
+        .nav-blog-mobile { display: none; }
+        @media (max-width: 768px) {
+            .nav-blog-desktop { display: none !important; }
+            .nav-blog-mobile { display: inline-flex !important; }
+        }
 
         @media (max-width: 768px) {
             .nav-inner { gap: 0.3rem; }
@@ -294,7 +299,7 @@
         @media (max-width: 768px) {
             .about-content, .info-grid { grid-template-columns: 1fr; gap: 2rem; }
             .catering-features { grid-template-columns: 1fr; }
-            .nav-links a:not(.btn):not(.nav-blog) { display: none; }
+            .nav-links a:not(.btn) { display: none; }
             .nav-social { border-left: none; margin-left: 0; padding-left: 0; gap: 0.8rem; }
             .nav-social a { font-size: 1rem; }
             .reviews-grid { grid-template-columns: 1fr; }
@@ -319,10 +324,11 @@
             <a href="#menu">Menu</a>
             <a href="#events">Events</a>
             <a href="#visit">Visit</a>
-            <a href="/blog" class="nav-blog">Blog</a>
+            <a href="/blog" class="nav-blog-desktop">Blog</a>
             <a href="https://www.foodbooking.com/api/fb/0yx57" class="btn btn-primary btn-sm" target="_blank">Order Now</a>
         </div>
         <div class="nav-social">
+            <a href="/blog" class="nav-blog-mobile" title="Blog"><i class="fa-solid fa-pen-nib"></i></a>
             <a href="https://www.facebook.com/people/Kobys-Creekside-Grill/61552214639346/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/kobys_grill" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.yelp.com/biz/kobys-creekside-grill-and-cafe-bartonsville" target="_blank" title="Yelp"><i class="fab fa-yelp"></i></a>
