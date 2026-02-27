@@ -1,0 +1,83 @@
+KOBY'S CREEKSIDE GRILL - REAL PHOTO MANIFEST
+Downloaded: 2026-02-18
+Source: Yelp (biz_photos/kobys-creekside-grill-and-cafe-bartonsville)
+
+FINAL 12 PHOTOS:
+================
+
+1. hero-steak.jpg (770x1000)
+   - Grilled flank steak with chimichurri, sliced on wood board
+   - Editorial quality - cilantro, parsley, garlic props
+   - Great for hero with text overlay space
+   - Source: Yelp (prime skirt steak)
+
+2. mezze.jpg (1000x1000)
+   - Outdoor mezze spread: cauliflower, tabbouleh, hummus, pita, red sauce
+   - Casual outdoor dining scene on wooden table
+   - Source: Yelp (outdoor table spread)
+
+3. shakshuka.jpg (800x1000)
+   - Cast-iron skillet shakshuka with poached eggs, tahini, zhug
+   - Served with fresh round pita bread
+   - Source: Yelp (Brunch special Shakshuka)
+
+4. salmon.jpg (751x1000) ⚠️ SUBSTITUTE
+   - Actually chicken thighs with grilled veggies, greens, hummus, pita
+   - NO salmon photo found on Yelp/Wix - this is the closest protein dish
+   - Consider: ask restaurant for salmon photo, or use as "grilled chicken" instead
+
+5. steak-plated.jpg (750x1000)
+   - Sliced steak (skirt/hanger) with chimichurri on cutting board
+   - Served with crispy fries, grilled zucchini, roasted red peppers, tahini
+   - Source: Yelp (Kobys picanha steak and fries)
+
+6. falafel-hummus.jpg (750x1000)
+   - Four golden falafel balls on creamy hummus bed
+   - Drizzled with olive oil, tahini, zhug, za'atar in black bowl
+   - Source: Yelp (fresh hummus falafel)
+
+7. pita-sandwich.jpg (750x1000)
+   - Hummus, pita, and Israeli salad spread
+   - Wooden bowls on blue checkered tablecloth
+   - Source: Yelp (Pita and hummus, Israeli salad)
+
+8. salad.jpg (750x1000)
+   - Fresh hummus and chopped Israeli salad
+   - Bright, colorful, appetizing presentation
+   - Source: Yelp (Fresh hummus and chopped Israeli salad)
+
+9. steak-family.jpg (750x1000)
+   - Large metal plate with grilled chicken/lamb over romaine
+   - Blistered tomatoes, thyme, herb sauce, pita wedges
+   - "Dinner for TWO" - perfect family-style shot
+   - Source: Yelp (dinner for TWO)
+
+10. creekside.jpg (800x1000) 
+    - Bistro table with chairs right at creek's edge
+    - Beautiful tree canopy, turquoise table, white chairs on gravel
+    - Source: Yelp (waterfront view)
+
+11. patio.jpg (1000x996)
+    - Covered patio with wooden table, green umbrella
+    - String lights, hanging plants, corrugated panels
+    - Autumn setting, cozy atmosphere
+    - Source: Yelp (outdoor dining area)
+
+12. events-venue.jpg (1000x750) 
+    - Nighttime wide shot of full property
+    - String lights, misty atmosphere, split-rail fence, barrels, umbrellas
+    - Source: Yelp (catering a private party)
+
+NOTES:
+======
+- All photos are REAL from Koby's Creekside Grill & Cafe, Bartonsville PA
+- Max resolution from Yelp is ~1000px on longest side
+- For larger hero/banner images, consider requesting originals from the restaurant
+- Most food photos are portrait orientation (750x1000) - may need cropping for square use
+- raw/ subfolder contains additional downloaded photos (extras/alternates)
+- ⚠️ No salmon-specific photo was found - salmon.jpg is actually chicken thighs
+
+MISSING/GAPS:
+- Salmon dish (no photo found)
+- Landscape hero shot (hero-steak is portrait 770x1000)
+- Higher resolution versions for hero/banner use (Yelp caps at ~1000px)
