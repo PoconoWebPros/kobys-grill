@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spring Has Arrived — And So Has Our New Menu | Koby's Creekside Grill</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root { --gold: #C4973B; --gold-light: #E8D5A3; --dark: #1a1a1a; --darker: #111111; --cream: #FAF7F0; --warm-gray: #8B8178; --border: rgba(196,151,59,0.15); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: var(--cream); background: var(--darker); line-height: 1.6; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(17,17,17,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.8rem 2rem; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--cream); text-decoration: none; font-weight: 700; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--warm-gray); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .post-hero { padding: 120px 2rem 50px; text-align: center; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, #161410 0%, var(--darker) 100%); }
+    .post-tag { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
+    .post-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--cream); max-width: 700px; margin: 0 auto 16px; line-height: 1.25; }
+    .post-meta { color: var(--warm-gray); font-size: 0.8rem; display: flex; gap: 16px; justify-content: center; align-items: center; }
+    .post-meta i { color: var(--gold); font-size: 0.7rem; }
+
+    .post-body { max-width: 720px; margin: 0 auto; padding: 60px 2rem 100px; }
+    .post-body p { color: #c8bfb0; font-size: 1.02rem; margin-bottom: 22px; line-height: 1.85; }
+    .post-body h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--cream); margin: 36px 0 14px; }
+    .post-body h3 { font-size: 1rem; font-weight: 600; color: var(--gold-light); margin: 24px 0 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .post-body ul { padding-left: 1.4rem; color: #c8bfb0; font-size: 1rem; margin-bottom: 22px; }
+    .post-body ul li { margin-bottom: 8px; }
+    .post-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--warm-gray); font-size: 0.8rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 40px; transition: color 0.3s; }
+    .back-link:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Koby's Creekside Grill</a>
+    <div class="nav-links">
+      <a href="/#menu">Menu</a>
+      <a href="/#reserve">Reservations</a>
+      <a href="/blog">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <span class="post-tag">Seasonal Menu</span>
+  <h1 class="post-title">Spring Has Arrived — And So Has Our New Menu</h1>
+  <div class="post-meta">
+    <span><i class="fa-regular fa-calendar"></i> February 27, 2026</span>
+    <span>·</span>
+    <span><i class="fa-regular fa-clock"></i> 3 min read</span>
+  </div>
+</div>
+
+<div class="post-body">
+  <a href="/blog" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+
+  <p>After a long winter, we're thrilled to bring back the flavors of the season. Our spring menu features fresh locally-sourced vegetables, lighter mezze spreads, and a few new dishes Koby has been perfecting since January.</p>
+
+  <p>Spring in the Poconos is something special — and we try to reflect that in every plate. You'll notice lighter flavors, brighter colors, and a few ingredients you might not expect from a Mediterranean kitchen. That's the fun part.</p>
+
+  <h2>What's New This Season</h2>
+
+  <p>We worked with a few farms in Monroe County to bring in produce that's genuinely local and genuinely fresh. Here's a look at what's coming to the menu:</p>
+
+  <ul>
+    <li><strong>Spring Mezze Board</strong> — rotating seasonal dips, fresh pita, and house-pickled vegetables</li>
+    <li><strong>Grilled Asparagus with Labneh</strong> — charred asparagus, whipped labneh, za'atar oil</li>
+    <li><strong>Market Fish of the Week</strong> — changes weekly based on what's fresh</li>
+    <li><strong>Strawberry & Mint Lemonade</strong> — housemade, BYOB-friendly</li>
+  </ul>
+
+  <hr class="post-divider">
+
+  <h2>The Terrace Is Open</h2>
+
+  <p>If you haven't dined outside yet, spring is the time. The creek is running, the trees are filling in, and there's nothing quite like dinner on the terrace as the sun goes down over the ridge. Reserve early — weekend tables fill up fast once the weather turns.</p>
+
+  <p>We're grateful for every guest who made this past winter one of our best yet. Looking forward to seeing you creekside this season.</p>
+
+  <p style="color: var(--warm-gray); font-style: italic;">— Koby & the team</p>
+</div>
+
+</body>
+</html>

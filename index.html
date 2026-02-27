@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koby's Creekside Grill & Cafe | Authentic Mediterranean Dining in Bartonsville, PA</title>
+    <meta name="description" content="Israeli & Mediterranean restaurant in the Pocono Mountains. Farm-to-table dishes, prime aged steaks, shakshuka, and more. BYOB. Bartonsville, PA.">
+    <meta property="og:title" content="Koby's Creekside Grill & Cafe">
+    <meta property="og:description" content="Authentic Israeli & Mediterranean dining in the Pocono Mountains. BYOB. Bartonsville, PA.">
+    <meta property="og:image" content="https://kobys-grill.vercel.app/img/mist-arch.jpg">
+    <meta property="og:url" content="https://kobys-grill.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://kobys-grill.vercel.app/img/mist-arch.jpg">
+    <script src="https://www.fbgcdn.com/embedder/js/ewm2.js" defer async></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C4973B;
+            --gold-light: #E8D5A3;
+            --dark: #1a1a1a;
+            --darker: #111111;
+            --cream: #FAF7F0;
+            --warm-gray: #8B8178;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--cream);
+            background: var(--darker);
+            line-height: 1.6;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* NAV */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0; right: 0;
+            z-index: 99;
+            background: rgba(17,17,17,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(196,151,59,0.15);
+            padding: 0.8rem 2rem;
+        }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--cream); text-decoration: none; font-weight: 700; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--warm-gray); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .btn.btn-sm { padding: 0.3rem 0.7rem !important; font-size: 0.6rem !important; letter-spacing: 0.5px; }
+
+        /* REVIEWS */
+        .reviews { background: var(--darker); padding: 5rem 2rem; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.5rem; }
+        .review-card { background: var(--dark); padding: 2rem; border-radius: 4px; border-top: 3px solid var(--gold); text-align: left; }
+        .review-stars { color: var(--gold); font-size: 1.2rem; margin-bottom: 1rem; letter-spacing: 2px; }
+        .review-text { color: var(--cream); font-size: 0.9rem; font-weight: 300; line-height: 1.7; font-style: italic; margin-bottom: 1rem; }
+        .review-source { color: var(--warm-gray); font-size: 0.8rem; font-weight: 500; }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(17,17,17,0.2) 0%, rgba(17,17,17,0.75) 100%),
+                        url('img/hero-steak.jpg') center/cover no-repeat;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 0.4em;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-top: 0.5rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: rgba(250,247,240,0.85);
+            max-width: 500px;
+            margin: 1.5rem auto 2.5rem;
+            font-weight: 300;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        a.btn-primary, a.btn-primary:visited, a.btn-primary:link { background: var(--gold); color: #ffffff !important; font-weight: 600; -webkit-text-fill-color: #ffffff; }
+        .btn-primary:hover { background: var(--gold-light); color: var(--dark); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(196,151,59,0.3); }
+        .btn-outline { border: 1px solid var(--gold); color: var(--gold) !important; background: transparent; }
+        .btn-outline:hover { background: var(--gold); color: var(--dark) !important; }
+
+        /* SECTIONS */
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1rem; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem; line-height: 1.2; }
+
+        /* ABOUT */
+        .about { background: var(--darker); }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-text p { color: var(--warm-gray); margin-bottom: 1.2rem; font-weight: 300; font-size: 0.95rem; }
+        .about-image { border-radius: 0; overflow: hidden; }
+        .about-image img { width: 100%; height: 450px; object-fit: cover; border-radius: 0; }
+        .byob-badge {
+            display: inline-block;
+            background: rgba(196,151,59,0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.5rem 1.2rem;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-top: 1rem;
+        }
+
+        /* PHOTO STRIP */
+        .photo-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+            background: var(--darker);
+        }
+        .photo-strip img { width: 100%; height: 250px; object-fit: cover; }
+
+        /* MENU */
+        .menu { background: var(--darker); text-align: center; }
+
+        .menu-categories { margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: left; }
+
+        .menu-cat { background: var(--dark); border-radius: 4px; margin-bottom: 0.75rem; overflow: hidden; border: 1px solid rgba(196,151,59,0.08); }
+
+        .menu-cat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .menu-cat-header:hover { background: rgba(196,151,59,0.05); }
+
+        .menu-cat-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+            margin: 0;
+        }
+
+        .menu-cat-count {
+            color: var(--warm-gray);
+            font-size: 0.75rem;
+            font-weight: 400;
+            margin-left: 0.75rem;
+        }
+
+        .menu-cat-toggle {
+            color: var(--gold);
+            font-size: 1.4rem;
+            line-height: 1;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            width: 24px;
+            text-align: center;
+        }
+
+        .menu-cat.open .menu-cat-toggle { transform: rotate(45deg); }
+
+        .menu-cat-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .menu-cat.open .menu-cat-body { max-height: 2000px; }
+
+        .menu-cat-img { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid rgba(196,151,59,0.1); }
+
+        .menu-cat-items { padding: 0 1.5rem 1.5rem; }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(196,151,59,0.08);
+            gap: 1rem;
+        }
+        .menu-item:last-child { border-bottom: none; }
+
+        .menu-item-info { flex: 1; }
+        .menu-item-name { color: var(--cream); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
+        .menu-item-desc { color: var(--warm-gray); font-size: 0.8rem; font-weight: 300; line-height: 1.5; }
+        .menu-item-price { color: var(--gold); font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+
+        /* CATERING */
+        .catering {
+            background: linear-gradient(180deg, rgba(17,17,17,0.7) 0%, rgba(17,17,17,0.85) 100%),
+                        url('img/events-venue.jpg') center/cover no-repeat;
+            text-align: center;
+        }
+        .catering-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .catering-card { padding: 2rem; background: rgba(26,26,26,0.7); backdrop-filter: blur(10px); border-radius: 4px; border: 1px solid rgba(196,151,59,0.15); text-align: left; }
+        .catering-card h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--cream); }
+        .catering-card p { color: var(--warm-gray); font-size: 0.85rem; font-weight: 300; line-height: 1.6; }
+        .catering-byob { margin-top: 2rem; display: inline-block; background: rgba(196,151,59,0.12); border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.5rem; border-radius: 2px; font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; }
+
+        /* VENUE PHOTO */
+        .venue-photo { padding: 0; }
+        .venue-photo-grid { display: grid; grid-template-columns: 1fr 1fr; }
+        .venue-photo-grid img { width: 100%; height: 400px; object-fit: cover; }
+
+        /* HOURS & LOCATION */
+        .info { background: var(--dark); }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .hours-table { width: 100%; margin-top: 1.5rem; }
+        .hours-table tr { border-bottom: 1px solid rgba(196,151,59,0.1); }
+        .hours-table td { padding: 0.8rem 0; font-size: 0.9rem; }
+        .hours-table td:first-child { color: var(--cream); font-weight: 500; }
+        .hours-table td:last-child { color: var(--warm-gray); text-align: right; }
+        .location-details { margin-top: 1.5rem; }
+        .location-details p { color: var(--warm-gray); font-size: 0.95rem; margin-bottom: 0.8rem; font-weight: 300; }
+        .location-details a { color: var(--gold); text-decoration: none; }
+
+        /* FOOTER */
+        footer { background: var(--darker); padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(196,151,59,0.1); }
+        .social-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem; }
+        .social-links a { color: var(--gold); text-decoration: none; font-size: 1.4rem; transition: all 0.3s; }
+        .social-links a:hover { color: var(--gold-light); transform: scale(1.15); }
+
+        /* NAV SOCIAL ICONS */
+        .nav-social { display: flex; gap: 1rem; align-items: center; margin-left: 0.5rem; padding-left: 1rem; border-left: 1px solid rgba(196,151,59,0.25); }
+        .nav-social a { color: var(--gold); font-size: 1.1rem; transition: all 0.3s; text-decoration: none; }
+        .nav-social a:hover { color: var(--gold-light); transform: scale(1.15); }
+
+        @media (max-width: 768px) {
+            .nav-inner { gap: 0.3rem; }
+            .nav-social { gap: 0.9rem; margin-left: 0.6rem; }
+            .nav-social a { font-size: 1rem; }
+            .nav-logo { font-size: 0.95rem; flex-shrink: 1; min-width: 0; }
+        }
+        footer p { color: var(--warm-gray); font-size: 0.75rem; font-weight: 300; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .about-content, .info-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .catering-features { grid-template-columns: 1fr; }
+            .nav-links a:not(.btn) { display: none; }
+            .nav-social { border-left: none; margin-left: 0; padding-left: 0; gap: 0.8rem; }
+            .nav-social a { font-size: 1rem; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .photo-strip { grid-template-columns: 1fr 1fr; }
+            .venue-photo-grid { grid-template-columns: 1fr; }
+            .venue-photo-grid img { height: 250px; }
+            section { padding: 3rem 1.5rem; }
+            .menu-cat-header { padding: 1rem 1.2rem; }
+            .menu-cat-items { padding: 0 1.2rem 1.2rem; }
+        }
+    </style>
+  <link rel="preload" as="image" href="img/koby-main-1.jpg">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">Koby's Creekside Grill</a>
+        <div class="nav-links">
+            <a href="#about">Our Story</a>
+            <a href="#menu">Menu</a>
+            <a href="#events">Events</a>
+            <a href="#visit">Visit</a>
+            <a href="https://www.foodbooking.com/api/fb/0yx57" class="btn btn-primary btn-sm" target="_blank">Order Now</a>
+        </div>
+        <div class="nav-social">
+            <a href="https://www.facebook.com/people/Kobys-Creekside-Grill/61552214639346/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/kobys_grill" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.yelp.com/biz/kobys-creekside-grill-and-cafe-bartonsville" target="_blank" title="Yelp"><i class="fab fa-yelp"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home" style="padding-top: 4rem;">
+    <div class="hero-badge">Pocono Mountains &middot; Bartonsville, PA</div>
+    <h1>
+        Koby's Creekside<br>Grill &amp; Cafe
+        <span>Authentic Israeli &amp; Mediterranean Cuisine</span>
+    </h1>
+    <p class="hero-tagline">
+        Farm-to-table dining with a creekside setting. Prime aged steaks, 
+        handcrafted pita sandwiches, and the flavors of Israel &mdash; right in the Poconos.
+    </p>
+    <div class="hero-buttons">
+        <a href="https://www.foodbooking.com/api/fb/0yx57" class="btn btn-primary" target="_blank">Order Online</a>
+        <a href="https://www.foodbooking.com/api/res/0yx57" class="btn btn-outline" target="_blank">Reserve a Table</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.75rem; color: rgba(250,247,240,0.6);">For large parties (8+), please call us at <a href="tel:5709940084" style="color: var(--gold-light);">(570) 994-0084</a></p>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+    <img src="img/koby-main-1.jpg" alt="Jerusalem Hummus Plate">
+    <img src="img/koby-main-2.jpg" alt="Grilled Skirt Steak Plate">
+    <img src="img/koby-main-3.jpg" alt="Shakshuka with Fresh Pita">
+    <img loading="lazy" src="img/koby-main-4.jpg" alt="Fresh Chopped Israeli Salad">
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <div class="section-label">Our Story</div>
+                <h2 class="section-title">Where Israel Meets<br>the Poconos</h2>
+                <p>
+                    Nestled along a serene creek in Bartonsville, near Camelback Ski Resort 
+                    and Great Wolf Lodge, Koby's Creekside Grill brings the bold flavors of 
+                    Israeli and Mediterranean cuisine to the Pocono Mountains.
+                </p>
+                <p>
+                    Chef Koby Ben brings a wealth of culinary expertise from Israel and 
+                    New York City, specializing in farm-to-table dishes featuring prime 
+                    aged butcher cuts &mdash; ribeye, skirt steaks &mdash; and grilled vegetables, 
+                    all sourced from local farmers.
+                </p>
+                <p>
+                    With outdoor seating overlooking the creek, a playground and soccer field 
+                    for the kids, and live music events &mdash; it&rsquo;s more than a meal, it&rsquo;s an experience.
+                </p>
+                <div class="byob-badge">BYOB &mdash; Bring Your Own Bottle</div>
+            </div>
+            <div class="about-image">
+                <img loading="lazy" src="img/lamp-table.jpg" alt="Koby's dining table with oil lamp">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+    <div class="container">
+        <div class="section-label">The Menu</div>
+        <h2 class="section-title">Healthy &middot; Fresh &middot; Delicious</h2>
+        <p style="color: var(--warm-gray); max-width: 600px; margin: 0 auto; font-weight: 300;">
+            From our legendary Lamb Burger to authentic Shakshuka, every dish 
+            celebrates the vibrant flavors of the Mediterranean. Tap a category to explore.
+        </p>
+
+        <div class="menu-categories">
+
+            <!-- Israeli Breakfast & Brunch -->
+            <div class="menu-cat open">
+                <div class="menu-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                    <h3>Israeli Breakfast &amp; Brunch <span class="menu-cat-count">4 items</span></h3>
+                    <span class="menu-cat-toggle">+</span>
+                </div>
+                <div class="menu-cat-body">
+                    <img loading="lazy" src="img/koby-originals/breakfast-maza.webp" alt="Koby's Breakfast Maza" class="menu-cat-img">
+                    <div class="menu-cat-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Steak &amp; Egg</div>
+                                <div class="menu-item-desc">One egg and our juicy skirt steak grilled to perfection, coupled with matbuka and placed over grilled toast.</div>
+                            </div>
+                            <div class="menu-item-price">$38</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Breakfast Maza</div>
+                                <div class="menu-item-desc">Variety of our seasonal tapas salads served with pita.</div>
+                            </div>
+                            <div class="menu-item-price">$12</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Shakshuka</div>
+                                <div class="menu-item-desc">Slow cooked eggs over tomatoes, peppers, garlic, cilantro seasoning and love.</div>
+                            </div>
+                            <div class="menu-item-price">$17</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Toasted Sunny Side</div>
+                            </div>
+                            <div class="menu-item-price">$17</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pita Sandwiches -->
+            <div class="menu-cat">
+                <div class="menu-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                    <h3>Pita Sandwiches <span class="menu-cat-count">8 items</span></h3>
+                    <span class="menu-cat-toggle">+</span>
+                </div>
+                <div class="menu-cat-body">
+                    <img loading="lazy" src="img/menu-pita.jpg" alt="Koby's Pita Sandwich" class="menu-cat-img">
+                    <div class="menu-cat-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Falafel Pita Sandwich</div>
+                                <div class="menu-item-desc">Jerusalem style falafel with hummus, matbuka, chopped salad, tahini, chimichurri sauce, pickle and fries.</div>
+                            </div>
+                            <div class="menu-item-price">$14</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Shack Burger</div>
+                                <div class="menu-item-desc">Juicy burger patty in warm pita with hummus, Israeli salad, and house-made sauces.</div>
+                            </div>
+                            <div class="menu-item-price">$22</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Israeli Grilled Cheese Toast</div>
+                                <div class="menu-item-desc">Tomato base with fresh cheese, seasoned to perfection and pressed in pita. A kid favorite.</div>
+                            </div>
+                            <div class="menu-item-price">$14</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Lamb Burger</div>
+                                <div class="menu-item-desc">Mixed ground angus skirt and lamb with garlic and onions, served in pita or potato bun with chimichurri sauce.</div>
+                            </div>
+                            <div class="menu-item-price">$25</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Skirt Steak Pita Sandwich</div>
+                                <div class="menu-item-desc">Juicy skirt steak in fresh pita with chimichurri sauce and hand cut fries.</div>
+                            </div>
+                            <div class="menu-item-price">$27</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Chicken Pargiot Pita Sandwich</div>
+                                <div class="menu-item-desc">Chicken thighs in Mediterranean spices and herbs, fire-grilled with veggies, Israeli salad, tahini sauce, and pickled veggies.</div>
+                            </div>
+                            <div class="menu-item-price">$16</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Veggie Sabich Pita</div>
+                                <div class="menu-item-desc">Classic vegetarian Israeli pita with grilled veggies, hummus, Israeli salad, tahini, and chimichurri. Add an egg to complete the flavor.</div>
+                            </div>
+                            <div class="menu-item-price">$14</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Pre Fixed Kids Menu</div>
+                                <div class="menu-item-desc">Light drinks, half mixed sandwiches, desserts.</div>
+                            </div>
+                            <div class="menu-item-price">$25</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plates & Platters -->
+            <div class="menu-cat">
+                <div class="menu-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                    <h3>Plates &amp; Platters <span class="menu-cat-count">11 items</span></h3>
+                    <span class="menu-cat-toggle">+</span>
+                </div>
+                <div class="menu-cat-body">
+                    <img loading="lazy" src="img/steak-plated.jpg" alt="Koby's Plated Steak" class="menu-cat-img">
+                    <div class="menu-cat-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Aged Prime Filet Mignon</div>
+                                <div class="menu-item-desc">8 oz prime cut filet on the grill with hand cut fries and seasonal grilled vegetables.</div>
+                            </div>
+                            <div class="menu-item-price">$57</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Aged 17 Oz Ribeye</div>
+                                <div class="menu-item-desc">Aged ribeye with rich marbling, ideal for sharing or solo. A perfect centerpiece for any dining occasion.</div>
+                            </div>
+                            <div class="menu-item-price">$40</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">24oz Fire Grilled Ribeye Steak</div>
+                                <div class="menu-item-desc">Prime ribeye from our local butcher, seasoned and grilled to perfection with grilled vegetable salad.</div>
+                            </div>
+                            <div class="menu-item-price">$69</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Aged 24 oz Fire Grilled Ribeye Steak</div>
+                                <div class="menu-item-desc">Aged prime ribeye grilled to perfection over grilled vegetables with Koby&rsquo;s signature chimichurri.</div>
+                            </div>
+                            <div class="menu-item-price">$77</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Skirt Steak Plate</div>
+                                <div class="menu-item-desc">Tender, juicy skirt steak cooked to perfection with versatile side options.</div>
+                            </div>
+                            <div class="menu-item-price">$36</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Picanha Steak</div>
+                                <div class="menu-item-desc">Prime Brazilian cut with rich flavors and soft tenderness, hand cut fries, grilled veggies, chimichurri sauce.</div>
+                            </div>
+                            <div class="menu-item-price">$36</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">ShacKufta Plate</div>
+                                <div class="menu-item-desc">Two ground mixed angus and ribeye kabobs with garlic, onions and herbs on mixed greens with grilled veggies, tahini and chimichurri.</div>
+                            </div>
+                            <div class="menu-item-price">$30</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Kobys Schnitzel</div>
+                                <div class="menu-item-desc">Crispy chicken cutlet with hand cut fries, grilled veggies, salads, hummus and tahini.</div>
+                            </div>
+                            <div class="menu-item-price">$28</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Wild Salmon</div>
+                                <div class="menu-item-desc">Fresh and flavorful wild salmon. Versatile dish perfect for any occasion.</div>
+                            </div>
+                            <div class="menu-item-price">$29</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Grill Mix For 2 / 4 / 6</div>
+                                <div class="menu-item-desc">The plate that started it all. Our best prime cuts mixed with signature Mediterranean seasoning.</div>
+                            </div>
+                            <div class="menu-item-price">$68</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Kobys Chicken Pargiot Plate</div>
+                                <div class="menu-item-desc">Chicken thighs marinated in Mediterranean spices, fire-grilled with veggies, tahini or chimichurri, Israeli salad, pita and hummus.</div>
+                            </div>
+                            <div class="menu-item-price">$27</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Salads, Appetizers & Sides -->
+            <div class="menu-cat">
+                <div class="menu-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                    <h3>Salads, Appetizers &amp; Sides <span class="menu-cat-count">12 items</span></h3>
+                    <span class="menu-cat-toggle">+</span>
+                </div>
+                <div class="menu-cat-body">
+                    <img loading="lazy" src="img/menu-salads.jpg" alt="Hummus and Israeli Salad" class="menu-cat-img">
+                    <div class="menu-cat-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Falafel Hummus</div>
+                                <div class="menu-item-desc">Hummus plate served with 4 falafel balls.</div>
+                            </div>
+                            <div class="menu-item-price">$16</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Israeli Salad</div>
+                                <div class="menu-item-desc">Freshly chopped cucumber, tomato, onion, parsley and dill with olive oil, lemon, salt and pepper.</div>
+                            </div>
+                            <div class="menu-item-price">$8</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Matbukha</div>
+                                <div class="menu-item-desc">Smoked tomatoes, sweet peppers, saut&eacute;ed onions, and garlic.</div>
+                            </div>
+                            <div class="menu-item-price">$7</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Jerusalem Hummus Plate</div>
+                                <div class="menu-item-desc">Homemade hummus, chickpeas, tahini and a secret recipe.</div>
+                            </div>
+                            <div class="menu-item-price">$8</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Tappas Experience</div>
+                                <div class="menu-item-desc">Sababa-Ganush (eggplant), Jerusalem hummus, chopped Israeli salad, spicy matbukha, tahini, and olives.</div>
+                            </div>
+                            <div class="menu-item-price">$10</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Grilled Vegetables Salad</div>
+                                <div class="menu-item-desc">Served daily.</div>
+                            </div>
+                            <div class="menu-item-price">$17</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Fresh Hand Cut Fries</div>
+                            </div>
+                            <div class="menu-item-price">$7</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Small Sides</div>
+                                <div class="menu-item-desc">House salads starter.</div>
+                            </div>
+                            <div class="menu-item-price">$2</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Soup Of The Day</div>
+                            </div>
+                            <div class="menu-item-price">$7</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Pita</div>
+                                <div class="menu-item-desc">The best pita bread on the east coast.</div>
+                            </div>
+                            <div class="menu-item-price">$3</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Side Of Tahini</div>
+                            </div>
+                            <div class="menu-item-price">$2</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Chimichurri</div>
+                                <div class="menu-item-desc">Side of sauce, served daily.</div>
+                            </div>
+                            <div class="menu-item-price">$2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beverages -->
+            <div class="menu-cat">
+                <div class="menu-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                    <h3>Beverages <span class="menu-cat-count">8 items</span></h3>
+                    <span class="menu-cat-toggle">+</span>
+                </div>
+                <div class="menu-cat-body">
+                    <img loading="lazy" src="img/menu-beverages.jpg" alt="Fresh Squeezed Orange Juice" class="menu-cat-img">
+                    <div class="menu-cat-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Mocktail of the Day</div></div>
+                            <div class="menu-item-price">$10</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Water Bottle</div></div>
+                            <div class="menu-item-price">$1</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Pellegrino Sparkling Soda</div></div>
+                            <div class="menu-item-price">$3.50</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Sparkling Water</div></div>
+                            <div class="menu-item-price">$5</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Fresh Lemonade</div></div>
+                            <div class="menu-item-price">$4</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Can Seltzer</div></div>
+                            <div class="menu-item-price">$2.50</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Fresh Squeezed OJ</div>
+                                <div class="menu-item-desc">Squeezed orange, lemon, lime, grapefruit &mdash; any mix, freshly made daily.</div>
+                            </div>
+                            <div class="menu-item-price">$7</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Pitcher Of Lemonade</div>
+                                <div class="menu-item-desc">Fresh lemonade from the Amish.</div>
+                            </div>
+                            <div class="menu-item-price">$25</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coffee & Tea -->
+            <div class="menu-cat">
+                <div class="menu-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                    <h3>Coffee &amp; Tea <span class="menu-cat-count">7 items</span></h3>
+                    <span class="menu-cat-toggle">+</span>
+                </div>
+                <div class="menu-cat-body">
+                    <img loading="lazy" src="img/menu-coffee.jpg" alt="Israeli Herbal Tea" class="menu-cat-img">
+                    <div class="menu-cat-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Iced Tea LemoNana</div>
+                                <div class="menu-item-desc">Fresh lemonade with Koby&rsquo;s blend of herbs and a touch of agave, served cold.</div>
+                            </div>
+                            <div class="menu-item-price">$5</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Double Shot Espresso</div></div>
+                            <div class="menu-item-price">$6</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Kobys Cafe Latte</div>
+                                <div class="menu-item-desc">Choice of almond, oat, or whole milk. Topped with cinnamon and whipped cream.</div>
+                            </div>
+                            <div class="menu-item-price">$7</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Black Coffee</div></div>
+                            <div class="menu-item-price">$4</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Espresso</div>
+                            <div class="menu-item-desc">Santa Mamma coffee roast, Arabian style.</div></div>
+                            <div class="menu-item-price">$3</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Israeli Herbal Tea</div>
+                                <div class="menu-item-desc">Organic mint, rosemary and honey brew served hot or cold.</div>
+                            </div>
+                            <div class="menu-item-price">$4</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Iced Cappuccino</div></div>
+                            <div class="menu-item-price">$7</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desserts, Extras & Specials -->
+            <div class="menu-cat">
+                <div class="menu-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                    <h3>Desserts, Extras &amp; Specials <span class="menu-cat-count">6 items</span></h3>
+                    <span class="menu-cat-toggle">+</span>
+                </div>
+                <div class="menu-cat-body">
+                    <div class="menu-cat-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Chocolate Chip Cookies</div></div>
+                            <div class="menu-item-price">$4</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info"><div class="menu-item-name">Small Baklawa</div></div>
+                            <div class="menu-item-price">$2.50</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Chefs Koby 3 Course Meal for One</div>
+                                <div class="menu-item-desc">Curated selection of delicious flavors, expertly prepared for a satisfying dining experience.</div>
+                            </div>
+                            <div class="menu-item-price">$125</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Chefs Table</div>
+                                <div class="menu-item-desc">Book your 3 course meal experience with master Chef Koby Ben.</div>
+                            </div>
+                            <div class="menu-item-price">$195</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Gift Card</div>
+                                <div class="menu-item-desc">The perfect gift for any occasion.</div>
+                            </div>
+                            <div class="menu-item-price">$25</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <div class="menu-item-name">Ice Cream</div>
+                                <div class="menu-item-desc">Strawberry or vanilla topped with organic whipped cream.</div>
+                            </div>
+                            <div class="menu-item-price">$5.50</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <a href="https://www.foodbooking.com/api/fb/0yx57" class="btn btn-primary" target="_blank">Order Online</a>
+        </div>
+    </div>
+</section>
+
+<!-- VENUE PHOTOS -->
+<section class="venue-photo">
+    <div class="venue-photo-grid">
+        <img loading="lazy" src="img/koby-outdoor-bar.jpg" alt="Koby's outdoor bar and grill" style="object-position: center 40%;">
+        <img loading="lazy" src="img/koby-aerial-view.jpg" alt="Aerial view of Koby's Creekside Grill">
+    </div>
+</section>
+
+<!-- CATERING & PRIVATE EVENTS -->
+<section class="catering" id="events">
+    <div class="container">
+        <div class="section-label">Catering &amp; Private Events</div>
+        <h2 class="section-title">Celebrate With Us</h2>
+        <p style="color: var(--warm-gray); max-width: 600px; margin: 0 auto; font-weight: 300;">
+            From intimate gatherings to grand celebrations &mdash; let Chef Koby 
+            bring the Mediterranean to your next event. Our creekside venue 
+            offers a one-of-a-kind setting in the Poconos.
+        </p>
+        <div class="catering-features">
+            <div class="catering-card">
+                <h4>Birthday Parties</h4>
+                <p>Special packages for children and adults including bouncy house rentals, games and activities for all ages in the perfect outdoor nature atmosphere.</p>
+            </div>
+            <div class="catering-card">
+                <h4>Weddings &amp; Rehearsal Dinners</h4>
+                <p>Beautiful outdoor setting with garden arch, string lights, and customized Mediterranean menus. Different packages available based on your budget.</p>
+            </div>
+            <div class="catering-card">
+                <h4>Private Venue Rental</h4>
+                <p>Exclusive use of our creekside venue for your special occasion. Corporate events, team lunches, holiday parties, and business gatherings with full catering service.</p>
+            </div>
+            <div class="catering-card">
+                <h4>Creekside Baptisms</h4>
+                <p>Bless your child by our flowing pure creek and give your family an unforgettable experience in a serene natural setting.</p>
+            </div>
+        </div>
+        <div class="catering-byob">BYOB &mdash; Bring Your Own Bottle Welcome at All Events</div>
+        <div style="margin-top: 2rem;">
+            <a href="mailto:kobyscreeksidegrill@gmail.com?subject=Event%20Inquiry%20-%20Koby%27s%20Creekside%20Grill" class="btn btn-outline">Inquire About Events</a>
+            <span style="display: inline-block; width: 1rem;"></span>
+            <a href="tel:5709940084" class="btn btn-outline">Call (570) 994-0084</a>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+    <div class="container" style="text-align: center;">
+        <div class="section-label">What People Are Saying</div>
+        <h2 class="section-title">Guest Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">"The food is so delicious and fresh. We had the skirt steak, ribeye, and the salmon &mdash; all seasoned perfectly and grilled to perfection. Even our kids loved it, and the hummus and salads are amazing."</p>
+                <div class="review-source">&mdash; TripAdvisor Review</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">"A standout dining destination in the region. The picturesque river setting creates a relaxing ambiance that encourages visitors to linger longer. Truly a hidden gem in the Poconos."</p>
+                <div class="review-source">&mdash; Google Review</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">"Healthy, farm-to-table Israeli fusion grill serving up the freshest ingredients in the Poconos. Chef Koby's expertise from Israel and NYC really shines through in every dish."</p>
+                <div class="review-source">&mdash; Facebook Review</div>
+            </div>
+        </div>
+        <div style="margin-top: 2rem;">
+            <p style="color: var(--warm-gray); font-size: 0.85rem;">120+ photos &amp; 51 reviews on Yelp &middot; Featured on TripAdvisor</p>
+        </div>
+    </div>
+</section>
+
+<!-- HOURS & LOCATION -->
+<section class="info" id="visit">
+    <div class="container">
+        <div class="info-grid">
+            <div>
+                <div class="section-label">Visit Us</div>
+                <h2 class="section-title">Hours &amp; Location</h2>
+                <table class="hours-table">
+                    <tr><td>Monday</td><td>12:00 PM &ndash; 5:00 PM</td></tr>
+                    <tr><td>Tuesday &ndash; Wednesday</td><td>Closed</td></tr>
+                    <tr><td>Thursday &ndash; Friday</td><td>4:00 PM &ndash; 8:00 PM</td></tr>
+                    <tr><td>Saturday &ndash; Sunday</td><td>12:00 PM &ndash; 7:00 PM</td></tr>
+                </table>
+            </div>
+            <div>
+                <div class="section-label">Find Us</div>
+                <h2 class="section-title">Bartonsville, PA</h2>
+                <div class="location-details">
+                    <p>3292 Route 611<br>Bartonsville, PA 18321</p>
+                    <p>Phone: <a href="tel:5709940084">(570) 994-0084</a></p>
+                    <p>Email: <a href="mailto:kobyscreeksidegrill@gmail.com">kobyscreeksidegrill@gmail.com</a></p>
+                    <p style="margin-top: 1.5rem; color: var(--cream); font-size: 0.85rem;">
+                        Near Camelback Ski Resort &amp; Great Wolf Lodge Water Park.<br>
+                        Perfect stop for families visiting the Poconos.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://www.google.com/maps/dir//3292+PA-611,+Bartonsville,+PA+18321" class="btn btn-primary" target="_blank">Get Directions</a>
+                    </div>
+                    <div style="margin-top: 2rem; border-radius: 4px; overflow: hidden;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.5!2d-75.2917!3d40.9867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c4997e3db5d0ed%3A0x88dc47b1f7ce31a8!2s3292%20PA-611%2C%20Bartonsville%2C%20PA%2018321!5e0!3m2!1sen!2sus!4v1" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="social-links">
+        <a href="https://www.facebook.com/people/Kobys-Creekside-Grill/61552214639346/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/kobys_grill" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.yelp.com/biz/kobys-creekside-grill-and-cafe-bartonsville" target="_blank" title="Yelp"><i class="fab fa-yelp"></i></a>
+    </div>
+    <p>&copy; 2026 Koby&rsquo;s Creekside Grill &amp; Cafe &middot; Bartonsville, PA &middot; All Rights Reserved</p>
+    <p style="margin-top: 1rem; font-size: 0.65rem; color: rgba(139,129,120,0.5);"><a href="https://poconowebpros.com" target="_blank" style="color: rgba(139,129,120,0.5); text-decoration: none;">Designed by Pocono Web Pros</a></p>
+</footer>
+
+</body>
+</html>

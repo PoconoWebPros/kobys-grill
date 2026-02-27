@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/admin/config.yml",
+      "headers": [{ "key": "Content-Type", "value": "text/yaml" }]
+    }
+  ]
+}
