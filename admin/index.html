@@ -10,26 +10,33 @@
   <script>
     CMS.init({
       config: {
+        // STAGING: test-repo stores posts in memory (browser only — no GitHub writes)
+        // PRODUCTION: swap to:
+        //   backend: { name: 'github', repo: 'PoconoWebPros/kobys-grill', branch: 'main', base_url: 'https://kobysgrill.com' }
+        // and deploy OAuth proxy (api/auth.js + api/callback.js) with GITHUB_CLIENT_ID/SECRET env vars
         backend: { name: 'test-repo' },
+
         media_folder: 'img/uploads',
         public_folder: '/img/uploads',
+
         collections: [
           {
             name: 'blog',
             label: 'Blog Posts',
             folder: 'posts',
             create: true,
-            slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+            slug: '{{slug}}',
             fields: [
-              { label: 'Title', name: 'title', widget: 'string' },
-              { label: 'Publish Date', name: 'date', widget: 'datetime' },
+              { label: 'Title',        name: 'title',    widget: 'string' },
+              { label: 'Publish Date', name: 'date',     widget: 'datetime', date_format: 'YYYY-MM-DD', time_format: false, default: '' },
               {
                 label: 'Category', name: 'category', widget: 'select',
                 options: ['Seasonal Menu', 'Behind the Kitchen', 'Catering', 'Events', 'Dining', 'News']
               },
-              { label: 'Excerpt', name: 'excerpt', widget: 'text', hint: 'Short summary shown on the blog listing (1-2 sentences)' },
+              { label: 'Excerpt', name: 'excerpt', widget: 'text',  hint: 'Short 1–2 sentence summary shown on the blog listing page.' },
+              { label: 'Read Time (minutes)', name: 'readTime', widget: 'number', value_type: 'int', min: 1, max: 30, required: false },
               { label: 'Featured Image', name: 'image', widget: 'image', required: false },
-              { label: 'Body', name: 'body', widget: 'markdown' }
+              { label: 'Body',         name: 'body',     widget: 'markdown' }
             ]
           }
         ]

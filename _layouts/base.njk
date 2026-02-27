@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} | Koby's Creekside Grill & Cafe</title>
+  <meta name="description" content="{{ description or 'Stories, recipes, events, and updates from Koby\'s Creekside Grill & Cafe in Bartonsville, PA.' }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --gold: #C4973B; --gold-light: #E8D5A3;
+      --dark: #1a1a1a; --darker: #111111;
+      --cream: #FAF7F0; --warm-gray: #8B8178;
+      --border: rgba(196,151,59,0.15);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--cream); background: var(--darker); line-height: 1.6; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(17,17,17,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.8rem 2rem; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--cream); text-decoration: none; font-weight: 700; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--warm-gray); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    /* ── BLOG HERO ── */
+    .blog-hero { padding: 120px 2rem 60px; text-align: center; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, #161410 0%, var(--darker) 100%); }
+    .blog-hero-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+    .blog-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--cream); margin-bottom: 12px; }
+    .blog-hero p { color: var(--warm-gray); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+
+    /* ── BLOG GRID ── */
+    .blog-container { max-width: 1100px; margin: 0 auto; padding: 60px 2rem 100px; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+    /* ── POST CARD ── */
+    .post-card { background: var(--dark); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.3s, transform 0.3s; text-decoration: none; display: block; }
+    .post-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .post-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .post-card-img-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #1e1a14, #2a2218); display: flex; align-items: center; justify-content: center; }
+    .post-card-img-placeholder i { font-size: 2rem; color: rgba(196,151,59,0.3); }
+    .post-card-body { padding: 22px; }
+    .post-card-tag { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+    .post-card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 10px; line-height: 1.35; }
+    .post-card-excerpt { font-size: 0.83rem; color: var(--warm-gray); line-height: 1.6; margin-bottom: 16px; }
+    .post-card-meta { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--warm-gray); border-top: 1px solid var(--border); padding-top: 14px; }
+    .post-card-meta i { font-size: 0.7rem; color: var(--gold); }
+
+    /* Featured post (first card spans full width) */
+    .post-card.featured { grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; }
+    .post-card.featured .post-card-img,
+    .post-card.featured .post-card-img-placeholder { height: 100%; min-height: 260px; }
+    .post-card.featured .post-card-title { font-size: 1.6rem; }
+    .post-card.featured .post-card-body { padding: 36px; display: flex; flex-direction: column; justify-content: center; }
+
+    .no-posts { text-align: center; padding: 80px 20px; color: var(--warm-gray); }
+    .no-posts h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--cream); margin-bottom: 12px; }
+
+    /* ── POST PAGE ── */
+    .post-hero { padding: 120px 2rem 50px; text-align: center; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, #161410 0%, var(--darker) 100%); }
+    .post-hero-tag { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
+    .post-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--cream); max-width: 700px; margin: 0 auto 16px; line-height: 1.25; }
+    .post-hero-meta { color: var(--warm-gray); font-size: 0.8rem; display: flex; gap: 16px; justify-content: center; align-items: center; }
+    .post-hero-meta i { color: var(--gold); font-size: 0.7rem; }
+    .post-featured-img { width: 100%; max-height: 480px; object-fit: cover; display: block; }
+
+    .post-body { max-width: 720px; margin: 0 auto; padding: 60px 2rem 100px; }
+    .post-body p { color: #c8bfb0; font-size: 1.02rem; margin-bottom: 22px; line-height: 1.85; }
+    .post-body h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--cream); margin: 36px 0 14px; }
+    .post-body h3 { font-size: 1rem; font-weight: 600; color: var(--gold-light); margin: 24px 0 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .post-body ul, .post-body ol { padding-left: 1.4rem; color: #c8bfb0; font-size: 1rem; margin-bottom: 22px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--cream); }
+    .post-body a { color: var(--gold); text-decoration: none; }
+    .post-body a:hover { text-decoration: underline; }
+    .post-body hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .post-body blockquote { border-left: 3px solid var(--gold); padding: 0 0 0 20px; margin: 24px 0; color: var(--warm-gray); font-style: italic; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--warm-gray); font-size: 0.8rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 40px; transition: color 0.3s; }
+    .back-link:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .post-card.featured { grid-column: span 1; display: block; }
+      .post-card.featured .post-card-img-placeholder,
+      .post-card.featured .post-card-img { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Koby's Creekside Grill</a>
+    <div class="nav-links">
+      <a href="/#menu">Menu</a>
+      <a href="/#reserve">Reservations</a>
+      <a href="/#events">Events</a>
+      <a href="/blog"{% if "/blog" in page.url %} class="active"{% endif %}>Blog</a>
+    </div>
+  </div>
+</nav>
+
+{{ content | safe }}
+
+</body>
+</html>

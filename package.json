@@ -1,0 +1,12 @@
+{
+  "name": "koby-blog-staging",
+  "version": "1.0.0",
+  "description": "Koby's Creekside Grill — blog staging with Eleventy + Decap CMS",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

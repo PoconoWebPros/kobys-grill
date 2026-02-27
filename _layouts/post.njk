@@ -1,0 +1,18 @@
+---
+layout: base
+---
+<div class="post-hero">
+  {% if category %}<span class="post-hero-tag">{{ category }}</span>{% endif %}
+  <h1 class="post-hero-title">{{ title }}</h1>
+  <div class="post-hero-meta">
+    {% if date %}<span><i class="fa-regular fa-calendar"></i> {{ date | readableDate }}</span>{% endif %}
+    {% if readTime %}<span>·</span><span><i class="fa-regular fa-clock"></i> {{ readTime }} min read</span>{% endif %}
+  </div>
+</div>
+
+{% if image %}<img src="{{ image }}" alt="{{ title }}" class="post-featured-img">{% endif %}
+
+<div class="post-body">
+  <a href="/blog" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+  {{ content | safe }}
+</div>

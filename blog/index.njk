@@ -1,0 +1,65 @@
+---
+layout: base
+title: Blog
+description: Stories, recipes, events, and updates from Koby's Creekside Grill & Cafe in Bartonsville, PA.
+permalink: /blog/
+---
+
+<div class="blog-hero">
+  <span class="blog-hero-label">From Our Kitchen & Creekside</span>
+  <h1>Stories & Updates</h1>
+  <p>Seasonal menus, behind-the-scenes stories, events, and more from Bartonsville's favorite spot.</p>
+</div>
+
+<div class="blog-container">
+  {% if collections.posts.length %}
+  <div class="blog-grid">
+
+    {% for post in collections.posts %}
+      {% if loop.first %}
+      {# Featured post — spans full width #}
+      <a href="{{ post.url }}" class="post-card featured">
+        {% if post.data.image %}
+          <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="post-card-img">
+        {% else %}
+          <div class="post-card-img-placeholder"><i class="fa-solid fa-utensils"></i></div>
+        {% endif %}
+        <div class="post-card-body">
+          {% if post.data.category %}<span class="post-card-tag">{{ post.data.category }}</span>{% endif %}
+          <div class="post-card-title">{{ post.data.title }}</div>
+          {% if post.data.excerpt %}<div class="post-card-excerpt">{{ post.data.excerpt }}</div>{% endif %}
+          <div class="post-card-meta">
+            <i class="fa-regular fa-calendar"></i> {{ post.date | readableDate }}
+            {% if post.data.readTime %}&nbsp;·&nbsp;<i class="fa-regular fa-clock"></i> {{ post.data.readTime }} min read{% endif %}
+          </div>
+        </div>
+      </a>
+      {% else %}
+      {# Regular post card #}
+      <a href="{{ post.url }}" class="post-card">
+        {% if post.data.image %}
+          <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="post-card-img">
+        {% else %}
+          <div class="post-card-img-placeholder"><i class="fa-solid fa-leaf"></i></div>
+        {% endif %}
+        <div class="post-card-body">
+          {% if post.data.category %}<span class="post-card-tag">{{ post.data.category }}</span>{% endif %}
+          <div class="post-card-title">{{ post.data.title }}</div>
+          {% if post.data.excerpt %}<div class="post-card-excerpt">{{ post.data.excerpt }}</div>{% endif %}
+          <div class="post-card-meta">
+            <i class="fa-regular fa-calendar"></i> {{ post.date | readableDate }}
+            {% if post.data.readTime %}&nbsp;·&nbsp;<i class="fa-regular fa-clock"></i> {{ post.data.readTime }} min read{% endif %}
+          </div>
+        </div>
+      </a>
+      {% endif %}
+    {% endfor %}
+
+  </div>
+  {% else %}
+  <div class="no-posts">
+    <h2>No posts yet</h2>
+    <p>Check back soon — we'll be posting updates, recipes, and events here.</p>
+  </div>
+  {% endif %}
+</div>
